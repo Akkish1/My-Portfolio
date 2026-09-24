@@ -378,14 +378,13 @@ section.block { padding: 88px 0; border-top: 1px solid var(--line); }
 .tile .v { font-size: 1.45rem; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
 .tile .d { font-size: 0.72rem; color: var(--ink-soft); }
 
-.charts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-@media (max-width: 560px) { .charts { grid-template-columns: 1fr; } }
+.charts { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
 .chart-card { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px; position: relative; }
 .chart-card h4 { margin: 0 0 8px; font-size: 0.78rem; font-weight: 700; color: var(--ink); }
 .chart-card svg { display: block; width: 100%; height: auto; overflow: visible; }
-.chart-card .axis { font: 10px var(--sans); fill: var(--ink-faint); }
-.chart-card .lbl { font: 600 10.5px var(--sans); fill: var(--ink-soft); }
-.chart-card .val { font: 600 10.5px var(--sans); fill: var(--ink); }
+.chart-card .axis { font: 11px var(--sans); fill: var(--ink-faint); }
+.chart-card .lbl { font: 500 12px var(--sans); fill: var(--ink-soft); }
+.chart-card .val { font: 600 12px var(--sans); fill: var(--ink); }
 
 .tooltip {
   position: absolute;
@@ -417,6 +416,7 @@ section.block { padding: 88px 0; border-top: 1px solid var(--line); }
 }
 .dash-table td { padding: 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .dash-table tr:last-child td { border-bottom: none; }
+.dash-table td.due { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dash-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
 .dash-table th.num { text-align: right; }
 @media (max-width: 480px) { .dash-table .hide-sm { display: none; } }
