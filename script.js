@@ -1,8 +1,12 @@
 (function () {
   "use strict";
 
-  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var root = document.documentElement;
+  // ?static turns off animations (used for README screenshots); ?theme=dark|light forces a theme.
+  var params = new URLSearchParams(window.location.search);
+  var reduceMotion = params.has("static") ||
+    (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (params.get("theme") === "dark" || params.get("theme") === "light") root.dataset.theme = params.get("theme");
 
   /* ---------- theme toggle ---------- */
   function currentTheme() {
