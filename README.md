@@ -1,5 +1,6 @@
 # Shourya Akkiraju | Portfolio
 
+[![CI](https://github.com/Akkish1/My-Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Akkish1/My-Portfolio/actions/workflows/ci.yml)
 [![Live site](https://img.shields.io/badge/live%20site-akkish1.github.io%2FMy--Portfolio-0f6b62)](https://akkish1.github.io/My-Portfolio/)
 [![Built with Claude Code](https://img.shields.io/badge/built%20with-Claude%20Code-d97757)](https://claude.com/claude-code)
 [![Hosted on GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-24292f)](https://pages.github.com/)
@@ -84,6 +85,7 @@ I built this site with **[Claude Code](https://claude.com/claude-code)**, giving
 | `styles.css` | Colors, fonts and layout for light mode, dark mode and phones |
 | `script.js` | Theme switch, scroll effects, the dashboard demo and its sample data |
 | `docs/screenshots/` | The images in this README |
+| `.github/workflows/ci.yml` | Automatic checks on every change: the script has no syntax errors, the page's files and README images exist, and every nav link has a section |
 
 ### Run it on your computer
 
@@ -104,3 +106,9 @@ Add `?static` to the address to turn off animations, or `?theme=dark` to force d
 - **Location:** Austin, Texas
 
 I'm open to Senior Program Manager, Technical Business Operations and program management roles in cloud, infrastructure and AI transformation.
+
+---
+
+## License
+
+The code is under the [MIT License](LICENSE), so you're welcome to reuse the layout and the dashboard demo. My name, resume details, recommendations and written content are about me, so please don't reuse them as your own.

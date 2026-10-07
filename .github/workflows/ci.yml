@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check JavaScript syntax
+        run: node --check script.js
+
+      - name: Check the page's files exist
+        run: |
+          set -e
+          for f in index.html styles.css script.js; do
+            test -f "$f" || { echo "Missing $f"; exit 1; }
+          done
+          grep -q 'href="styles.css"' index.html || { echo "index.html doesn't load styles.css"; exit 1; }
+          grep -q 'src="script.js"' index.html || { echo "index.html doesn't load script.js"; exit 1; }
+
+      - name: Check every image in the README exists
+        run: |
+          set -e
+          missing=0
+          for img in $(grep -oE 'docs/screenshots/[A-Za-z0-9._-]+\.png' README.md | sort -u); do
+            if [ ! -f "$img" ]; then echo "Missing $img"; missing=1; fi
+          done
+          exit $missing
+
+      - name: Check every page section in the nav exists
+        run: |
+          set -e
+          for id in $(grep -oE 'href="#[a-z-]+"' index.html | sed -E 's/href="#([a-z-]+)"/\1/' | sort -u); do
+            grep -q "id=\"$id\"" index.html || { echo "Nav link #$id has no matching section"; exit 1; }
+          done
